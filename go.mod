@@ -1,4 +1,4 @@
-module github.com/ios-xr/telemetry-go-collector
+module github.com/rundeff/telemetry-go-collector
 
 go 1.13
 

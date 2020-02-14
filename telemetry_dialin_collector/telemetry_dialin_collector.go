@@ -14,8 +14,8 @@ import (
        "google.golang.org/grpc"
        "google.golang.org/grpc/credentials"
 
-       MdtDialin "github.com/ios-xr/telemetry-go-collector/mdt_grpc_dialin"
-       "github.com/ios-xr/telemetry-go-collector/telemetry_decode"
+       MdtDialin "github.com/rudneff/telemetry-go-collector/mdt_grpc_dialin"
+       "github.com/rudneff/telemetry-go-collector/telemetry_decode"
 )
 
 const tmpFileName   = "telemetry-msg-*.dat"

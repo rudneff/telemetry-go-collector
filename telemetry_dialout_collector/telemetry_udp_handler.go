@@ -7,7 +7,7 @@ import (
         "bytes"
         "encoding/binary"
 
-        "github.com/ios-xr/telemetry-go-collector/telemetry_decode"
+        "github.com/rudneff/telemetry-go-collector/telemetry_decode"
 )
 
 ///////////////////////////////////
