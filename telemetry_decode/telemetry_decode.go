@@ -40,7 +40,7 @@ type MdtOut struct {
 	PluginFile string
 	DataChan   <-chan []byte
 	oFile      *os.File
-	esClient   *elasticsearch.Client
+	esClient   *elasticsearch7.Client
 }
 
 // message handler
@@ -447,7 +447,7 @@ func (o *MdtOut) elasticSearchOutput(data string, index string, node_id string, 
 	}
 }
 
-func elasticSearchClientInit(esServer string) *elasticsearch.Client {
+func elasticSearchClientInit(esServer string) *elasticsearch7.Client {
 	var r map[string]interface{}
 
 	//esServer := "http://localhost:9200"
@@ -455,12 +455,12 @@ func elasticSearchClientInit(esServer string) *elasticsearch.Client {
 	// Initialize a client with the default settings.
 	// An `ELASTICSEARCH_URL` environment variable will be used when exported.
 	//es, err := elasticsearch.NewDefaultClient()
-	cfg := elasticsearch.Config{
+	cfg := elasticsearch7.Config{
 		Addresses: []string{
 			esServer,
 		},
 	}
-	es, err := elasticsearch.NewClient(cfg)
+	es, err := elasticsearch7.NewClient(cfg)
 
 	if err != nil {
 		log.Fatalf("Error creating the client: %s", err)

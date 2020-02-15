@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	mdt_dialout "github.com/rundeff/telemetry-go-collector/mdt_grpc_dialout"
-	"github.com/rundeff/telemetry-go-collector/telemetry_decode"
+	mdt_dialout "github.com/rudneff/telemetry-go-collector/mdt_grpc_dialout"
+	"github.com/rudneff/telemetry-go-collector/telemetry_decode"
 	"io"
 	"net"
 	"os"

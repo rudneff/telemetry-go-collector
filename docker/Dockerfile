@@ -43,15 +43,9 @@ FROM golang:1.13-alpine3.11
 #ADD metrics_gpb.json /data/metrics_gpb.json
 #ADD pipeline /pipeline
 
-WORKDIR /go/src/app
+WORKDIR $HOME/telemetry_go_collector
 
-COPY telemetry_dialout_collector/ .
+COPY  . .
 
-RUN go get -d -v ./...
-RUN go install -v ./...
-
-VOLUME ["/data"]
-
-WORKDIR /
-ENTRYPOINT ["/pipeline"]
-CMD ["-log=/data/pipeline.log","-config=/data/pipeline.conf"]
+RUN go get -d -v ./telemetry_dialout_collector
+RUN go install -v ./telemetry_dialout_collector
