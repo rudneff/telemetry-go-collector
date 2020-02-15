@@ -37,15 +37,16 @@
 
 FROM golang:1.13-alpine3.11
 
-# Stage default configuration, metrics spec and example setup
-#ADD pipeline.conf /data/pipeline.conf
-#ADD metrics.json /data/metrics.json
-#ADD metrics_gpb.json /data/metrics_gpb.json
-#ADD pipeline /pipeline
+ENV HOME /root
 
 WORKDIR $HOME/telemetry_go_collector
 
 COPY  . .
+
+# This was added because of an error:
+# /usr/local/go/pkg/tool/linux_amd64/link: running gcc failed: exec: "gcc": executable file not found in $PATH
+# More info: https://github.com/golang/go/issues/28065
+ENV CGO_ENABLED=0
 
 RUN go get -d -v ./telemetry_dialout_collector
 RUN go install -v ./telemetry_dialout_collector
