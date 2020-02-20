@@ -35,7 +35,7 @@
 #
 # ----------------------------------------------------
 
-FROM golang:1.13-alpine3.11
+FROM golang:1.13-stretch
 
 ENV HOME /root
 
@@ -48,5 +48,5 @@ COPY  . .
 # More info: https://github.com/golang/go/issues/28065
 ENV CGO_ENABLED=0
 
-RUN go get -d -v ./telemetry_dialout_collector
-RUN go install -v ./telemetry_dialout_collector
+RUN go get -d -v ./telemetry_dialout_collector && \
+    go install -v ./telemetry_dialout_collector
