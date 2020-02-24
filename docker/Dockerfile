@@ -50,3 +50,4 @@ ENV CGO_ENABLED=0
 
 RUN go get -d -v ./telemetry_dialout_collector && \
     go install -v ./telemetry_dialout_collector
+

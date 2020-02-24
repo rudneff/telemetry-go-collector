@@ -29,6 +29,7 @@ var usage = func() {
 	fmt.Fprintf(os.Stderr, "GRPC use protoc to decode without proto: %s -port <> -encoding gpb -decode_raw\n", os.Args[0])
 }
 var (
+	host     = flag.String("host", "0.0.0.0", "The server address to listen on")
 	port     = flag.Int("port", 57400, "The server port to listen on")
 	encoding = flag.String("encoding", "json",
 		"expected encoding, Options: json,self-describing-gpb,gpb needed only for grpc")
@@ -67,7 +68,7 @@ func main() {
 	}
 
 	if *transport == "tcp" {
-		mdtTcpServer(":" + strconv.Itoa(*port))
+		mdtTcpServer(*host + ":" + strconv.Itoa(*port))
 	} else if *transport == "udp" {
 		mdtUdpServer(":" + strconv.Itoa(*port))
 	} else {

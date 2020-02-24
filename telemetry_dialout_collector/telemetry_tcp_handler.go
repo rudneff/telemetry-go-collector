@@ -1,13 +1,13 @@
 package main
 
 import (
-        "fmt"
-        "io"
-        "net"
-        "bytes"
-        "encoding/binary"
+    "bytes"
+    "encoding/binary"
+    "fmt"
+    "io"
+    "net"
 
-        "github.com/rudneff/telemetry-go-collector/telemetry_decode"
+    "github.com/rudneff/telemetry-go-collector/telemetry_decode"
 )
 
 ///////////////////////////////////
